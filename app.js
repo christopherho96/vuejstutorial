@@ -10,7 +10,17 @@ new Vue({
         x: 0,
         y: 0,
         c: 0,
-        d: 0
+        d: 0,
+        available: false,
+        nearby: false,
+        error: false,
+        success: false,
+        characters: ['Mario', 'Luigi', 'Yoshi', 'Bowser'],
+        ninjas: [
+            {name: 'Ryu', age: 25},
+            {name: 'Chris', age: 21},
+            {name: 'Ken', age: 18}
+        ]
     },
     methods:{
         greet1: function(){
@@ -52,6 +62,12 @@ new Vue({
         addToD: function(){
             console.log("addToD")
             return this.d + this.age 
+        },
+        compClasses: function(){
+            return {
+                available: this.available,
+                nearby: this.nearby
+            }
         }
     }
 });

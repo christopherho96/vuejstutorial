@@ -34,6 +34,25 @@
 
             <a v-on:click.prevent = "click" href = "https:twitter.com">Twitter Link</a>
 
+            <h1>Keyboard Events</h1>
+            <!-- Added event modifier .enter that makes method only run when enter is pressed -->
+            <!-- Two way data-binding using v-model and updates the values name and age with whatever is being typed in text field-->
+            <label>Name:</label>
+            <input type = "text" v-model = "name">
+            <span>{{name}}</span>
+            <label>Age:</label>
+            <input type = "text" v-model = "age">
+            <span>{{age}}</span>
+
+            <!-- Computed properties only run when needed when their variables are changed-->
+            <!-- Calling a computed property is the same as calling method except instead of addToC() its addToC-->
+            <h1>Computed Properties</h1>
+            <button v-on:click = "c++">Add to C</button>
+            <button v-on:click = "d++">Add to D</button>
+            <p>C - {{c}}</p>
+            <p>D - {{d}}</p>
+            <p>Age + C = {{addToC}}</p>
+            <p>Age + D = {{addToD}}</p>
         </div>
         <script src = "app.js"></script>
     </body>

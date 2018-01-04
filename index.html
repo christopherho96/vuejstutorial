@@ -14,6 +14,26 @@
             <p> {{ name }} </p>
             <p>{{ sentence() }}</p>
             <p>Job: {{ job }}</p>
+            <a v-bind:href = "website"> Twitter Link</a>
+            <input type ="text" v-bind:value = "job"/>
+            <p v-html= "websiteTag"></p>
+            <!-- Fires off code directly in parentheses-->
+            <button v-on:click="age++">Age++</button>
+            <button v-on:click = "age--">Age--</button>
+            <!--Calls methods named add and minus in app.js file -->
+            <!-- Event modifier .once attached to end of event listener click for add(1)-->
+            <button v-on:click.once="add(1)">Add a year</button>
+            <button v-on:click = "minus(1)">Subtract a Year</button>
+            <button v-on:dblclick="add(10)">Add a year</button>
+            <button v-on:dblclick = "minus(10)">Subtract a Year</button>
+            <p> My age is {{age}}</p>
+
+            <div id ="canvas" v-on:mousemove = "updateXY">
+                {{x}}, {{y}}
+            </div>
+
+            <a v-on:click.prevent = "click" href = "https:twitter.com">Twitter Link</a>
+
         </div>
         <script src = "app.js"></script>
     </body>

@@ -13,3 +13,6 @@ export default{
         }
     }
 }
+
+// mixins can be used for creating files of code to be used across entire project
+//when you need a mixin, just import it and instantiate the mixin array with the imported mixin file

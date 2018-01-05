@@ -1,8 +1,35 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueResource from 'vue-resource'
+import VueRouter from 'vue-router'
+import Routes from './routes.js'
 
 Vue.use(VueResource);
+Vue.use(VueRouter);
+
+//initiate a new router
+const router = new VueRouter({
+  routes: Routes,
+  mode: 'hash'
+});
+
+/*
+// this is the same thing as what we did above, but instead, we create our routes in an external file, then imported it
+
+const router = new VueRouter({
+  routes: [
+    {
+        path: '/',
+        component: showBlogs
+    },
+    {
+        path: '/add',
+        component: addBlog
+    },
+  ]
+});
+
+/*
 
 //custom directives 
 
@@ -40,5 +67,6 @@ Vue.filter('snippet', function(value){
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(App),
+  router: router
 })

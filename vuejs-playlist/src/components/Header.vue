@@ -5,7 +5,7 @@
 </template>
 
 <script>
-
+import {bus} from '../main';
 export default {
     props: {
         title: {
@@ -19,8 +19,10 @@ export default {
   methods: {
       changeTitle: function(){
           //emit fires off an event with (name, value) so that root component can listen for event
-          this.$emit('changeTitle', 'Vue Wizards');
+          //this.$emit('changeTitle', 'Vue Wizards');
           // 1. 'Vue Wizards' is value emitted
+          //this.title = 'Vue Wizards';
+          bus.$emit('titleChanged', 'Vue Wizards');
       }
   }
 }

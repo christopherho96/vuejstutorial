@@ -7,6 +7,7 @@
         <label for="">Blog Content</label>
         <textarea v-model.lazy="blog.content"></textarea>
         <div id = "checkboxes">
+            <!--Checkbox binding -->
             <!-- v-model automatically appends the value into the blog.categories array -->
             <label>Ninjas</label>
             <input type = "checkbox" value="ninjas" v-model="blog.categories"/>
@@ -17,6 +18,12 @@
             <label>Cheese</label>
             <input type = "checkbox" value="cheese" v-model="blog.categories"/>
         </div>
+
+        <label>Author:</label>
+        <!--When an option is selection, the select model auto gets the value of the selected option from within tag -->
+        <select v-model = "blog.author">
+            <option v-for = "author in authors">{{author}}</option>
+        </select>
     </form>
     <div id = "preview">
         <h3>Preview Blog</h3>
@@ -28,6 +35,8 @@
             <!--v-for loops through the blog.categories and outputs each element  -->
             <li v-for = "category in blog.categories">{{category}}</li>
         </ul>
+        <p>Blog Author</p>
+        <p>{{blog.author}}</p>
 
     </div>
   </div>
@@ -41,8 +50,10 @@ export default {
         blog: {
             title: "",
             content: "",
-            categories: []
-        }
+            categories: [],
+            author: ""
+        },
+        authors: ['Chris', 'Ted', 'Jeremy']
     }
   },
   methods: {

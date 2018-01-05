@@ -1,9 +1,15 @@
 <template>
-  <div v-theme:column= "'narrow'" id  = "show-blogs">
+  <div v-theme:
+  
+  
+  column= "'narrow'" id  = "show-blogs">
       <h1>All Blog Articles</h1>
-      <div class = "single-blog" v-for="blog in blogs">
-          <h2 v-rainbow>{{blog.title}}</h2>
-          <article>{{blog.body}}</article>
+      <input type= "text" v-model="search" placeholder = "Search blogs"/>
+      <div class = "single-blog" v-for="blog in filteredBlogs">
+          <!--Apply filter to-uppercase which is created in main.js -->
+          <h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
+          <!--Apply filter snippet which is created in main.js -->
+          <article>{{blog.body | snippet}}</article>
       </div>
   </div>
 </template>
@@ -14,7 +20,8 @@ export default {
 
   data () {
     return {
-        blogs: []
+        blogs: [],
+        search: ""
     }
   },
   methods: {
@@ -29,6 +36,13 @@ export default {
           //gets the first 10 elements in the array
           this.blogs = data.body.slice(0,10);
       })
+  },
+  computed: {
+      filteredBlogs: function(){
+          return this.blogs.filter((blog) => {
+              return blog.title.match(this.search)
+          });
+      }
   }
 }
 </script>

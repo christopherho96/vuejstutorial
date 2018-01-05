@@ -10,11 +10,12 @@ Vue.use(VueResource);
 // changes the style.color property of the element
 // gives it a hex value of a random 6 digit number
 // gives 8-2  = 6 digit
-Vue.directive('rainbow',{
+
+/*Vue.directive('rainbow',{
   bind(el, binding, vnode){
     el.style.color = "#" + Math.random().toString().slice(2,8);
   }
-})
+})*/
 
 Vue.directive('theme', {
   bind(el, binding, vnode){
@@ -32,9 +33,6 @@ Vue.directive('theme', {
 
 //Filters
 
-Vue.filter('to-uppercase', function (value){
-  return value.toUpperCase()
-});
 
 Vue.filter('snippet', function(value){
   return value.slice(0,100)+"..."

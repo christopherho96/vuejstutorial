@@ -1,6 +1,6 @@
 <template>
   <div v-theme:column= "'narrow'" id  = "show-blogs">
-      <h1>All Blog Articles</h1>
+      <h1>List Blog Titles</h1>
       <input type= "text" v-model="search" placeholder = "Search blogs"/>
       <div class = "single-blog" v-for="blog in filteredBlogs">
           <!--Apply filter to-uppercase which is created in main.js -->
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+
 import searchMixin from '../mixins/searchMixin';
 
 export default {
@@ -35,7 +36,8 @@ export default {
           this.blogs = data.body.slice(0,10);
       })
   },
-  computed: {/*
+  computed: {
+      /*
       //custom search filter 
       filteredBlogs: function(){
           //this return statement will return the array of blogs that contain the searchtext
@@ -46,7 +48,7 @@ export default {
               //this return statement will return true or false if the blog its currently filtering contains the search text
               return blog.title.match(this.search)
           });
-      }*/
+      } */
   },
 
   //registering filters and directives locally instead of globally through main.js
